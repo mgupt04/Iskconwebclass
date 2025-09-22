@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
             caption: "Discourse",
         },
         {
-            src: "kirtan.jpg",
+            src: "kirtan3.JPG",
             caption: "Kirtan",
         },
         {
