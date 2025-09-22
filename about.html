@@ -1,0 +1,170 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaishnava Calendar | ISKCON Louisville</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section class="abouthero">
+        <h1>Teachings</h1>
+    </section>
+
+    <div class="aboutdes">
+        The Hare Krishna Movement is a popular name for the International Society for Krishna Consciousness (ISKCON), a worldwide community of devotees practicing bhakti yoga.
+    </div>
+
+    <section class="aboutsections">
+        <img src="worship.jpg" alt="Bhakti Yoga" class="about-img">
+        <div class="about-desc">
+            <h2>Bhakti Yoga</h2>
+            <p>
+               Bhakti is the Sanskrit word for loving devotion to the Supreme Lord. Bhakti-yoga is a spiritual practice centered on this devotion, designed to help an individual's soul connect with its divine source. This path, which is celebrated in sacred texts such as the Bhagavad-gita as the highest form of yoga, is supported by a rich tradition of teachings, arts, and practices that have been handed down through many generations.
+
+            </p>
+            
+        </div>
+    </section>
+
+    <section class="aboutsections">
+        <img src="prabhupada.jpg" alt="Our Founder" class="about-img">
+        <div class="about-desc">
+            <h2>Our Founder</h2>
+            <p>
+                ISKCON, the International Society for Krishna Consciousness, was founded in 1966 by A. C. Bhaktivedanta Swami Prabhupada (1896-1977). As the society's preceptor and main teacher, Prabhupada is part of a long lineage of spiritual masters in the Gaudiya Vaishnava tradition. At the age of 69, he traveled from India to New York City and, working alone, established a worldwide organization that includes more than a hundred temples, farm communities, and institutes.
+            </p>
+            <a href="prabhupad.html">Read more about Our Founder here</a>
+        </div>
+    </section>
+
+     <section class="aboutsections">
+        <img src="mantra.jpg" alt="Our Founder" class="about-img">
+        <div class="about-desc">
+            <h2>Hare Krishna Mantra</h2>
+            <p>
+                The Hare Krishna devotees are known throughout the world for their melodious chanting of the Hare Krishna Mantra, which the Vedas declare as the most sublime and effective means for spiritual enlightenment in the current age:
+            </p>
+            <p><i>
+                Hare Krishna Hare Krishna<br>
+Krishna Krishna Hare Hare<br>
+Hare Rama Hare Rama<br>
+Rama Rama Hare Hare </i>
+            </p>
+
+            <p>
+                The Maha-Mantra is a powerful chant used for meditation. It consists of three names of God: Krishna, meaning "the all-attractive one," and Rama, meaning "the reservoir of pleasure." The word Hare is a spiritual address used to invoke God's presence. Chanting these names, either alone (japa) or in a group (sankirtan), brings the chanter a natural sense of satisfaction and spiritual pleasure, reflecting the innate connection we all have with God.
+            </p>
+        </div>
+    </section>
+
+<section class="aboutsections">
+    <img src="bhagavad.jpg" alt="Our Founder" class="about-img">
+    <div class="about-desc">
+        <h2>Eight Principles of Hare Krishna Movement</h2>
+        <p>
+            Srila Prabhupada established eight principles as the basis of the Hare Krishna movement:
+        </p>
+        <ol>
+            <li>By sincerely cultivating a genuine spiritual science, we can be free from anxiety and come to a state of pure, unending, blissful consciousness in this lifetime.</li>
+            <li>We are not our bodies but eternal spirit souls, parts and parcels of God (Krishna). As such, we are all brothers, and Krishna is ultimately our common father.</li>
+            <li>Krishna is the eternal, all-knowing, omnipresent, all-powerful, and all-attractive Personality of Godhead. He is the seed-giving father of all living beings, and He is the sustaining energy of the entire cosmic creation.</li>
+            <li>The Absolute Truth is contained in all the great scriptures of the world. However, the oldest known revealed scriptures in existence are the Vedic literatures, most notably the Bhagavad Gita, which is the literal record of Krishna’s actual words.</li>
+            <li>We should learn the Vedic knowledge from a genuine spiritual master – one who has no selfish motives and whose mind is firmly fixed on Krishna.</li>
+            <li>Before we eat, we should offer to the Lord the food that sustains us. Then Krishna becomes the offering and purifies us.</li>
+            <li>We should perform all our actions as offerings to Krishna and do nothing for our own “sense gratification.”</li>
+            <li>The recommended means for achieving the mature stage of love of God in this age of Kali, or age of quarrel, is to chant the holy names of the Lord, the Hare Krishna Mantra.</li>
+        </ol>
+    </div>
+</section>
+
+ <section class="aboutsections">
+        <img src="gbc.jpg" alt="Bhakti Yoga" class="about-img">
+        <div class="about-desc">
+            <h2>ISKCON, GBC, & Temple Leadership</h2>
+            <p>
+               His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, Founder-Acarya of the International Society for Krishna Consciousness (ISKCON), established the Governing Body Commission (GBC) to be the ultimate managing authority for the society.
+            </p>
+            <p>
+                For the latest and more information on the GBC, please visit gbc.iskcon.org
+            
+            
+        </div>
+    </section>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                const toggler = document.querySelector('.navbar-toggler');
+                const collapse = document.querySelector('.navbar-collapse');
+                if (toggler && collapse) {
+                    toggler.addEventListener('click', function() {
+                        collapse.classList.toggle('show');
+                    });
+                }
+            });
+    </script>
+    
+<button id="OURBOT">?</button>
+
+<div id="bot">
+    <div id="header">Quick questions</div>
+    <div id="messages"></div>
+    <div id="options"></div>
+</div>
+
+    <script>
+    const answers = {
+        "Temple hours": "The temple is open to the public from 5:00 PM to 9:00 PM on Satrudays. ",
+"Saturday Feast": "Our main weekly program, the Saturday Feast, takes place every Sunday from 5:00 PM to 9:00 PM. It includes kirtan (congregational chanting), a spiritual discourse, and a complimentary vegetarian feast (prasadam).",
+"What to expect?": "When you visit, you can expect a peaceful and welcoming atmosphere. The programs are open to everyone, regardless of their background, and there is no charge for any of our services or the Saturday feast.",
+"Prasadam": "Prasadam is vegetarian food that has been offered to Krishna. It is considered sacred. We serve a free prasadam meal after our main programs, especially during the Sunday Feast.",
+"Donations": "We are a non-profit organization and operate on voluntary donations. Donations are greatly appreciated but are never required for attendance.",
+"Mantra chanting": "The Hare Krishna mantra, also known as the Maha-mantra, is a spiritual sound vibration for purifying the mind and consciousness. It is chanted during our programs and can be practiced by anyone.",
+"Bhagavad-gita class": "We offer regular classes on the teachings of the Bhagavad-gita. These classes are open to everyone, and no prior knowledge is required. Please check our calendar for the schedule.",
+"Dress code": "We recommend dressing respectfully and comfortably. It is customary to remove your shoes before entering the main temple room.",
+    };
+
+    function addMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.className = sender;
+        messageElement.textContent = message;
+        document.getElementById('messages').appendChild(messageElement);
+        document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+    }
+
+    function createOptions() {
+        const optionsContainer = document.getElementById('options');
+        optionsContainer.innerHTML = ""; 
+        Object.keys(answers).forEach(question => {
+            const button = document.createElement('button');
+            button.textContent = question;
+            button.className = "question";
+            button.onclick = function() {
+                addMessage(question, 'user');
+                setTimeout(() => addMessage(answers[question], 'bot'), 500);
+            };
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    document.getElementById('OURBOT').addEventListener('click', function() {
+        const bot = document.getElementById('bot');
+        if (bot.style.display === "none" || bot.style.display === "") {
+            bot.style.display = "flex";
+        } else {
+            bot.style.display = "none";
+        }
+    });
+
+    createOptions();
+</script>
+</body>
+</html>

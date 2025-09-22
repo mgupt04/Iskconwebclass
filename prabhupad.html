@@ -1,0 +1,112 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vaishnava Calendar | ISKCON Louisville</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section class="abouthero">
+        <h1>Srila Prabhupada</h1>
+    </section>
+
+  
+
+    <section class="aboutsections" style="margin-top: 50px;">
+        <img src="prabhupada.jpg" alt="Bhakti Yoga" class="about-img">
+        <div class="about-desc">
+            <h2>Our Founder</h2>
+            <p>
+              Srila Prabhupada was born Abhay Charan De on September 1, 1896 to a practicing Hindu family in Kolkata.  As a youth growing up in British-controlled India, Abhay became involved with Mahatma Gandhi’s civil disobedience movement to secure independence for his nation. A 1922 meeting with a prominent scholar and religious leader, Srila Bhaktisiddhanta Sarasvati, proved most influential on Abhay’s future calling. Srila Bhaktisiddhanta was a leader in the Gaudiya Vaishnava denomination, a monotheistic tradition within the broad Hindu culture. He asked Abhay to bring the teachings of Lord Krishna to the English-speaking world. Abhay became a disciple of Srila Bhaktisiddhanta in 1933 and resolved to carry out his mentor’s request. Abhay, who became known worldwide as A.C. Bhaktivedanta Swami Prabhupada and as Shrila Prabhupada, spent the next 32 years preparing for his journey to the Western world.
+
+In 1965, at the age of 69, Srila Prabhupada travelled to New York City aboard a cargo ship. The journey was treacherous, and the elderly spiritual teacher suffered 2 heart attacks aboard ship. Arriving in the United States with just 7 dollars in Indian rupees and his translations of sacred Sanskrit texts, he began to spread the teachings of Krishna consciousness.  His spiritual message resonated with many young people, some of whom came forward to become serious students of the Krishna tradition. With the help of these students, Shrila Prabhupada rented a small storefront on New York’s Lower East Side to use as a temple. On July 11, 1966, he officially registered his organization in the state of New York, formally founding the International Society for Krishna Consciousness (ISKCON).
+
+In the 11 years that followed, Srila Prabhupada circled the globe 14 times on lecture tours, bringing the teachings of Lord Krishna to thousands of people on 6 continents.  Men and women from all backgrounds and walks of life came forward to accept his message, and with their help, Shrila Prabhupada established ISKCON centers and projects throughout the world.  Under his inspiration, Krishna devotees established temples, rural communities, and educational institutions and started what would become the world’s largest vegetarian food relief program. With the desire to nourish the roots of Krishna consciousness in its home, Srila Prabhupada returned to India several times, where he sparked a revival in the Vaishnava tradition. In India, he opened dozens of temples, including large centers in the holy towns of Vrindavana and Mayapur.
+
+Srila Prabhupada's most significant contributions, perhaps, are his books. He authored over 70 volumes on the Krishna tradition, which are highly respected by scholars for their authority, depth, fidelity to the tradition and clarity. Several of his works are used as textbooks in univeersity courses. His writings have been translated into 76 languages. His most prominent works include: Bhagavad-gita As It Is, the multi-volume Srimad-Bhagavatam and the set of Sri Caitanya-caritamrita books.
+
+The above has been quoted from Iskcon.org
+
+            </p>
+            
+        </div>
+    </section>
+
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                // Setup toggler if needed
+                const toggler = document.querySelector('.navbar-toggler');
+                const collapse = document.querySelector('.navbar-collapse');
+                if (toggler && collapse) {
+                    toggler.addEventListener('click', function() {
+                        collapse.classList.toggle('show');
+                    });
+                }
+            });
+    </script>
+    
+<button id="OURBOT">?</button>
+
+<div id="bot">
+    <div id="header">Quick questions</div>
+    <div id="messages"></div>
+    <div id="options"></div>
+</div>
+
+    <script>
+    const answers = {
+        "Temple hours": "The temple is open to the public from 5:00 PM to 9:00 PM on Satrudays. ",
+"Saturday Feast": "Our main weekly program, the Saturday Feast, takes place every Sunday from 5:00 PM to 9:00 PM. It includes kirtan (congregational chanting), a spiritual discourse, and a complimentary vegetarian feast (prasadam).",
+"What to expect?": "When you visit, you can expect a peaceful and welcoming atmosphere. The programs are open to everyone, regardless of their background, and there is no charge for any of our services or the Saturday feast.",
+"Prasadam": "Prasadam is vegetarian food that has been offered to Krishna. It is considered sacred. We serve a free prasadam meal after our main programs, especially during the Sunday Feast.",
+"Donations": "We are a non-profit organization and operate on voluntary donations. Donations are greatly appreciated but are never required for attendance.",
+"Mantra chanting": "The Hare Krishna mantra, also known as the Maha-mantra, is a spiritual sound vibration for purifying the mind and consciousness. It is chanted during our programs and can be practiced by anyone.",
+"Bhagavad-gita class": "We offer regular classes on the teachings of the Bhagavad-gita. These classes are open to everyone, and no prior knowledge is required. Please check our calendar for the schedule.",
+"Dress code": "We recommend dressing respectfully and comfortably. It is customary to remove your shoes before entering the main temple room.",
+    };
+
+    function addMessage(message, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.className = sender;
+        messageElement.textContent = message;
+        document.getElementById('messages').appendChild(messageElement);
+        document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+    }
+
+    function createOptions() {
+        const optionsContainer = document.getElementById('options');
+        optionsContainer.innerHTML = ""; 
+        Object.keys(answers).forEach(question => {
+            const button = document.createElement('button');
+            button.textContent = question;
+            button.className = "question";
+            button.onclick = function() {
+                addMessage(question, 'user');
+                setTimeout(() => addMessage(answers[question], 'bot'), 500);
+            };
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    document.getElementById('OURBOT').addEventListener('click', function() {
+        const bot = document.getElementById('bot');
+        if (bot.style.display === "none" || bot.style.display === "") {
+            bot.style.display = "flex";
+        } else {
+            bot.style.display = "none";
+        }
+    });
+
+    createOptions();
+</script>
+</body>
+</html>
